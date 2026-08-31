@@ -27,6 +27,7 @@ install -m 0755 %{_sourcedir}/%{name}-%{version} %{buildroot}%{_bindir}/nvidia-p
 install -m 0644 %{_sourcedir}/%{name}.service %{buildroot}%{_unitdir}/nvidia-pstated.service
 
 %post
+/usr/bin/chcon -t bin_t %{_bindir}/nvidia-pstated
 %systemd_post nvidia-pstated.service
 
 %preun
