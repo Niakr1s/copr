@@ -37,7 +37,7 @@ install -m 0644 %{_sourcedir}/%{name}.service %{buildroot}%{_unitdir}/nvidia-pst
 %systemd_postun_with_restart nvidia-pstated.service
 
 %files
-%attr(0755, root, root) %{_bindir}/nvidia-pstated
+%{_bindir}/nvidia-pstated
 %{_unitdir}/nvidia-pstated.service
 
 %changelog
