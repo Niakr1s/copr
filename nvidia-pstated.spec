@@ -2,7 +2,7 @@
 
 Name: nvidia-pstated
 Version: 1.0.9
-Release: %autorelease
+Release: 2%{?dist}
 Summary: A daemon that automatically manages the performance states of NVIDIA GPUs.
 
 License: GPL-3.0

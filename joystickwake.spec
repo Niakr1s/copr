@@ -2,7 +2,7 @@
 
 Name: joystickwake
 Version: 1.0.0
-Release: %autorelease
+Release: 2%{?dist}
 Summary: A joystick-aware screen waker
 
 License: GPL-3.0
