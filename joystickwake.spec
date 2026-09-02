@@ -2,7 +2,7 @@
 
 Name: joystickwake
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A joystick-aware screen waker
 
 License: GPL-3.0
@@ -39,7 +39,7 @@ install -m 0755 %{_sourcedir}/%{name}-%{version} %{buildroot}%{_bindir}/joystick
 install -m 0644 %{_sourcedir}/%{name}.service %{buildroot}%{_unitdir}/joystickwake.service
 
 %post
-/usr/bin/chcon -t bin_t %{_bindir}/joystickwake
+/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/joystickwake" 2>/dev/null || :
 %systemd_post joystickwake.service
 # Add the service user to the 'input' group so it can read joystick devices
 usermod -a -G input joystickwake

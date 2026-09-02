@@ -2,7 +2,7 @@
 
 Name: nvidia-pstated
 Version: 1.0.9
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A daemon that automatically manages the performance states of NVIDIA GPUs.
 
 License: GPL-3.0
@@ -27,7 +27,7 @@ install -m 0755 %{_sourcedir}/%{name}-%{version} %{buildroot}%{_bindir}/nvidia-p
 install -m 0644 %{_sourcedir}/%{name}.service %{buildroot}%{_unitdir}/nvidia-pstated.service
 
 %post
-/usr/bin/chcon -t bin_t %{_bindir}/nvidia-pstated
+/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/nvidia-pstated" 2>/dev/null || :
 %systemd_post nvidia-pstated.service
 
 %preun
