@@ -1,4 +1,5 @@
 %global debug_package %{nil}
+%global _sourcedir %{_topdir}/SOURCES/%{name}
 
 Name: nvidia-pstated
 Version: 1.0.9
@@ -10,8 +11,8 @@ URL: https://github.com/sasha0552/nvidia-pstated
 
 BuildRequires: systemd-rpm-macros
 
-Source0: %{name}/%{name}-%{version}
-Source1: %{name}/%{name}@.service
+Source0: %{name}-%{version}
+Source1: %{name}@.service
 
 Requires: systemd
 
@@ -24,8 +25,8 @@ nvidia-pstated packaged for fedora
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 
-install -m 0755 %{_sourcedir}/%{name}/%{name}-%{version} %{buildroot}%{_bindir}/%{name}
-install -m 0644 %{_sourcedir}/%{name}/%{name}@.service %{buildroot}%{_unitdir}/%{name}@.service
+install -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/%{name}
+install -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}@.service
 
 %post
 /usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/%{name}" 2>/dev/null || :
