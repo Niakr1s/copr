@@ -14,4 +14,4 @@ The contents of the package can be shown using `rpm -qlp ~/rpmbuild/RPMS/x86_64/
     Automatically manages idle states of Nvidia GPUs.
 
 - joystickwake:
-    Prevents the system from sleeping while using gamepad
+    Prevents the system from sleeping while using gamepad.
