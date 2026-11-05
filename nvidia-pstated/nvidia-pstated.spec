@@ -2,7 +2,7 @@
 
 Name: nvidia-pstated
 Version: 1.0.9
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A daemon that automatically manages the performance states of NVIDIA GPUs.
 
 License: GPL-3.0
@@ -10,9 +10,8 @@ URL: https://github.com/sasha0552/nvidia-pstated
 
 BuildRequires: systemd-rpm-macros
 
-%global pkg_dir nvidia-pstated
-Source0: %{pkg_dir}/%{name}-%{version}
-Source1: %{pkg_dir}/nvidia-pstated@.service
+Source0: %{name}/%{name}-%{version}
+Source1: %{name}/%{name}@.service
 
 Requires: systemd
 
@@ -25,22 +24,22 @@ nvidia-pstated packaged for fedora
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 
-install -m 0755 %{_sourcedir}/%{pkg_dir}/%{name}-%{version} %{buildroot}%{_bindir}/nvidia-pstated
-install -m 0644 %{_sourcedir}/%{pkg_dir}/nvidia-pstated@.service %{buildroot}%{_unitdir}/nvidia-pstated@.service
+install -m 0755 %{_sourcedir}/%{name}/%{name}-%{version} %{buildroot}%{_bindir}/%{name}
+install -m 0644 %{_sourcedir}/%{name}/%{name}@.service %{buildroot}%{_unitdir}/%{name}@.service
 
 %post
-/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/nvidia-pstated" 2>/dev/null || :
-%systemd_post nvidia-pstated@.service
+/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/%{name}" 2>/dev/null || :
+%systemd_post %{name}@.service
 
 %preun
-%systemd_preun nvidia-pstated@.service
+%systemd_preun %{name}@.service
 
 %postun
-%systemd_postun_with_restart nvidia-pstated@.service
+%systemd_postun_with_restart %{name}@.service
 
 %files
-%{_bindir}/nvidia-pstated
-%{_unitdir}/nvidia-pstated@.service
+%{_bindir}/%{name}
+%{_unitdir}/%{name}@.service
 
 %changelog
 %autochangelog

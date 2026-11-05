@@ -2,14 +2,13 @@
 
 Name: joystickwake
 Version: 1.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A joystick-aware screen waker
 
 License: GPL-3.0
 URL: https://codeberg.org/forestix/joystickwake
 
-%global pkg_dir joystickwake
-Source0: ${pkg_dir}/%{name}-%{version}
+Source0: ${name}/%{name}-%{version}
 
 Requires: python3-pyudev python3-dbus-fast python3-xlib
 
@@ -20,13 +19,13 @@ joystickwake packaged for fedora
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-install -m 0755 %{_sourcedir}/%{pkg_dir}/%{name}-%{version} %{buildroot}%{_bindir}/joystickwake
+install -m 0755 %{_sourcedir}/%{name}/%{name}-%{version} %{buildroot}%{_bindir}/%{name}
 
 %post
-/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/joystickwake" 2>/dev/null || :
+/usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/%{name}" 2>/dev/null || :
 
 %files
-%{_bindir}/joystickwake
+%{_bindir}/%{name}
 
 %changelog
 %autochangelog
