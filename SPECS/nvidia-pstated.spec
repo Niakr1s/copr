@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-%global _sourcedir %{_topdir}/SOURCES/%{name}
 
 Name: nvidia-pstated
 Version: 1.0.9
@@ -19,13 +18,13 @@ Requires: systemd
 nvidia-pstated packaged for fedora
 
 %prep
-%setup -q -c
+%setup -q
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 
-install -m 0755 %{name}-%{version} %{buildroot}%{_bindir}/%{name}
+install -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
 install -m 0644 %{name}@.service %{buildroot}%{_unitdir}/%{name}@.service
 
 %post
