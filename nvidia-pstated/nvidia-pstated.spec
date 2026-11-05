@@ -9,8 +9,10 @@ License: GPL-3.0
 URL: https://github.com/sasha0552/nvidia-pstated
 
 BuildRequires: systemd-rpm-macros
-Source0: %{name}-%{version}
-Source1: nvidia-pstated@.service
+
+%global pkg_dir nvidia-pstated
+Source0: %{pkg_dir}/%{name}-%{version}
+Source1: %{pkg_dir}/nvidia-pstated@.service
 
 Requires: systemd
 
@@ -23,8 +25,8 @@ nvidia-pstated packaged for fedora
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 
-install -m 0755 %{_sourcedir}/%{name}-%{version} %{buildroot}%{_bindir}/nvidia-pstated
-install -m 0644 %{_sourcedir}/nvidia-pstated@.service %{buildroot}%{_unitdir}/nvidia-pstated@.service
+install -m 0755 %{_sourcedir}/%{pkg_dir}/%{name}-%{version} %{buildroot}%{_bindir}/nvidia-pstated
+install -m 0644 %{_sourcedir}/%{pkg_dir}/nvidia-pstated@.service %{buildroot}%{_unitdir}/nvidia-pstated@.service
 
 %post
 /usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/nvidia-pstated" 2>/dev/null || :
