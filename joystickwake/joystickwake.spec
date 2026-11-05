@@ -9,7 +9,7 @@ Summary: A joystick-aware screen waker
 License: GPL-3.0
 URL: https://codeberg.org/forestix/joystickwake
 
-Source0: %{name}-%{version}
+Source0: %{name}-%{version}.tar.gz
 
 Requires: python3-pyudev python3-dbus-fast python3-xlib
 
@@ -17,10 +17,11 @@ Requires: python3-pyudev python3-dbus-fast python3-xlib
 joystickwake packaged for fedora
 
 %prep
+%setup -q -c
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-install -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/%{name}
+install -m 0755 %{name}-%{version} %{buildroot}%{_bindir}/%{name}
 
 %post
 /usr/sbin/semanage fcontext -a -t bin_t "%{_bindir}/%{name}" 2>/dev/null || :
