@@ -13,7 +13,11 @@ The contents of the package can be shown using `rpm -qlp ~/rpmbuild/RPMS/x86_64/
 You need to build a source rpm and then build it remotely using copr-cli.
 
 ```bash
+# download sources
+spectool -g -R ~/rpmbuild/SPECS/<pkg>.spec
+# build a source rpm
 rpmbuild -bs ~/rpmbuild/SPECS/<pkg>.spec
+# push to cloud
 copr-cli build <owner>/<repo> ~/rpmbuild/SRPMS/<pkg>.src.rpm
 ```
 

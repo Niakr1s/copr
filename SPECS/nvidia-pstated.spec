@@ -13,16 +13,23 @@ BuildRequires: systemd-rpm-macros
 
 Requires: systemd
 
+Source0: https://github.com/sasha0552/nvidia-pstated/archive/refs/tags/v1.0.9.tar.gz
+
 %description
 nvidia-pstated packaged for fedora
 
 %prep
+%setup -q
+
+%build
+cmake -B build
+cmake --build build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 
-install -m 0755 %{_sourcedir}/%{name} %{buildroot}%{_bindir}/%{name}
+install -m 0755 build/%{name} %{buildroot}%{_bindir}/%{name}
 install -m 0644 %{_sourcedir}/%{name}@.service %{buildroot}%{_unitdir}/%{name}@.service
 
 %post
