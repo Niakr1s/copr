@@ -2,9 +2,16 @@
 
 This repo contains some extra packages for my daily usage.
 
-> Reminder for myself: this repo should be placed in `~/rpmbuild/SOURCES`. Packages can be build locally using `rpmbuild -bb ~/rpmbuild/SOURCES/<pkg>.spec`.
+## Reminders for myself
 
-# Packages:
+This repo should be placed in `~/rpmbuild/SOURCES`.
+Packages can be build locally using `rpmbuild -bb ~/rpmbuild/SOURCES/<pkg>.spec`.
+The contents of the package can be shown using `rpm -qlp ~/rpmbuild/RPMS/x86_64/<pkg>.rpm`.
+
+## Packages
 
 - **nvidia-pstated**:
     Automatically manages idle states of Nvidia GPUs.
+
+- joystickwake:
+    Prevents the system from sleeping while using gamepad
