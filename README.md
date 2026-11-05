@@ -4,8 +4,8 @@ This repo contains some extra packages for my daily usage.
 
 ## Reminders for myself
 
-This repo should be placed in `~/rpmbuild/SOURCES`.
-Packages can be build locally using `rpmbuild -bb ~/rpmbuild/SOURCES/<pkg>.spec`.
+This repo should be placed in `~/rpmbuild`.
+Packages can be build locally using `rpmbuild -bb ~/rpmbuild/SPECS/<pkg>.spec`.
 The contents of the package can be shown using `rpm -qlp ~/rpmbuild/RPMS/x86_64/<pkg>.rpm`.
 
 ## Packages
