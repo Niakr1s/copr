@@ -8,6 +8,15 @@ This repo should be placed in `~/rpmbuild`.
 Packages can be build locally using `rpmbuild -bb ~/rpmbuild/SPECS/<pkg>.spec`.
 The contents of the package can be shown using `rpm -qlp ~/rpmbuild/RPMS/x86_64/<pkg>.rpm`.
 
+## Upload to copr repo
+
+You need to build a source rpm and then build it remotely using copr-cli.
+
+```bash
+rpmbuild -bs ~/rpmbuild/SPECS/<pkg>.spec
+copr-cli build <owner>/<repo> ~/rpmbuild/SRPMS/<pkg>.src.rpm
+```
+
 ## Packages
 
 - **nvidia-pstated**:
