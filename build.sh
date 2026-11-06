@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# This tool builds a src.rpm packages
+
 SPECS_DIR="$HOME/rpmbuild/SPECS"
 
 build() {
@@ -8,7 +10,6 @@ build() {
   echo "Building: $spec"
   spectool -g -R "$spec"
   rpmbuild -bs "$spec"
-  rpmbuild -bb "$spec"
 }
 
 buildall() {
