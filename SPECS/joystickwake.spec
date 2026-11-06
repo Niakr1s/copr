@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-%global _sourcedir %{_topdir}/SOURCES/%{name}
 
 Name: joystickwake
 Version: 1.0.0
@@ -11,7 +10,7 @@ URL: https://codeberg.org/forestix/joystickwake
 
 Requires: python3-pyudev python3-dbus-fast python3-xlib
 
-Source0: https://codeberg.org/forestix/joystickwake/archive/v1.0.tar.gz
+Source0: %{name}-%{version}.tar.gz
 
 %description
 joystickwake packaged for fedora

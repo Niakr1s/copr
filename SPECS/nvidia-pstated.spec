@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-%global _sourcedir %{_topdir}/SOURCES/%{name}
 
 Name: nvidia-pstated
 Version: 1.0.9
@@ -13,7 +12,7 @@ BuildRequires: systemd-rpm-macros
 
 Requires: systemd
 
-Source0: https://github.com/sasha0552/nvidia-pstated/archive/refs/tags/v1.0.9.tar.gz
+Source0: %{name}-%{version}.tar.gz
 
 %description
 nvidia-pstated packaged for fedora
