@@ -12,7 +12,7 @@ BuildRequires: systemd-rpm-macros
 
 Requires: systemd
 
-Source0: %{name}-%{version}.tar.gz
+Source0: https://github.com/sasha0552/nvidia-pstated/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 %description
 nvidia-pstated packaged for fedora

@@ -10,7 +10,10 @@ URL: https://codeberg.org/forestix/joystickwake
 
 Requires: python3-pyudev python3-dbus-fast python3-xlib
 
-Source0: %{name}-%{version}.tar.gz
+# Strips ".0" only if it is at the very end of the version string
+%global tagver  %{lua: print((rpm.expand('%version'):gsub('%.0$', '')))}
+
+Source0: https://codeberg.org/forestix/joystickwake/archive/v%{tagver}.tar.gz#/%{name}-%{version}.tar.gz
 
 %description
 joystickwake packaged for fedora
