@@ -17,6 +17,29 @@ tarballs to `~/rpmbuild/SOURCES` directory.
 
 There is a script `build.sh`, that builds all specs to a source RPM.
 
+### Partial building
+
+For testing, you can skip build phase.
+
+- First build full build:
+
+```bash
+rpmbuild --noclean -bb <pkg>.spec
+```
+
+- Edit your .spec file (e.g., tweaking %install, %files, or .service) and rerun:
+
+```bash
+rpmbuild --noclean --short-circuit -bi <pkg>.spec # to rerun install phase
+rpmbuild --noclean --short-circuit -bb <pkg>.spec # to make rpm
+```
+
+- You can install partially built rpm, using:
+
+```bash
+sudo rpm -Uvh --nodeps RPMS/x86_64/llama-cpp-cmpfix-1.0.0-1.fc44.x86_64.rpm
+```
+
 ## Upload to copr repo
 
 You need to build a source rpm and then build it remotely using copr-cli.
