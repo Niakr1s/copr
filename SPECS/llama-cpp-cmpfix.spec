@@ -4,7 +4,7 @@
 %global bin_prefix cmpfix
 
 Name:           llama-cpp-cmpfix
-Version:        1.0.0
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        llama.cpp CUDA inference server, CLI, and libraries, with fixes for NVIDIA CMP cards
 
@@ -14,7 +14,7 @@ URL:            https://github.com/ggml-org/llama.cpp
 Source0:        https://github.com/Niakr1s/llama.cpp/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 # each update you should bump this tag (get it from https://github.com/ggml-org/llama.cpp/releases/download/v1.0.0/nightly-tag.txt)
-%global nightly b12359
+%global nightly b12774
 Source1:        %{url}/releases/download/%{nightly}/llama-%{nightly}-ui.tar.gz
 
 # Build-time only
