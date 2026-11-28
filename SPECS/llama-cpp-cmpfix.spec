@@ -16,6 +16,7 @@ Source0:        https://github.com/Niakr1s/llama.cpp/archive/refs/tags/v%{versio
 # each update you should bump this tag (get it from https://github.com/ggml-org/llama.cpp/releases/download/v1.0.0/nightly-tag.txt)
 %global nightly b12774
 Source1:        %{url}/releases/download/%{nightly}/llama-%{nightly}-ui.tar.gz
+%global ui_dist_path ui/apps/chat/dist
 
 # Build-time only
 BuildRequires:  cmake
@@ -36,8 +37,8 @@ and all required shared libraries.
 
 %prep
 %setup -q -n llama.cpp-%{version}
-mkdir tools/ui/dist
-tar -xzf %{SOURCE1} -C tools/ui/dist --strip-components=1
+mkdir %{ui_dist_path}
+tar -xzf %{SOURCE1} -C %{ui_dist_path} --strip-components=1
 
 %build
 export PATH="/usr/local/cuda/bin:$PATH"
